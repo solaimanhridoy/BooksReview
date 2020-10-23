@@ -1,4 +1,4 @@
-![](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/My Projects/06. BooksReview/img/frontlook.png)
+![frontlook.png](img/frontlook.png)
 
 # Dot-Book
 
