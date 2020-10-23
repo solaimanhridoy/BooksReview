@@ -1,22 +1,52 @@
 # Books Review
 
-When you start this app first time you will be redirected to login page where you can sign up and log in.
-login.html file extends layout.html. Threre are two forms in login page, one for registering a second for logging in.
-One and only javascript function check if passwords match durign registration process. Existing users also is checked before registration.
-Succesfully registered you can try log in , in case of incorrect data message shows. Once logged in username displays next to log out button.
+"*A web application to give reviews and feedback to books.*"
 
-User is redirected to index.html after logged in. If you requested index by GET , you will see simple quote and will be able search books database. 
-If you request index by POST (searching for books) list of books shows. Clicking one of the positions takes you to book.html (bookpage)
+Step by step to run this flask web applications on linux machine:
 
-book.html file extends layout.html. On bookpage author, year and isbn are loaded. 
-Also from goodread.com API rating count and rating itself are loaded. 
-Also all reviews received from users along with ratings are loaded one under one. On the bottom there is a plece where you can leave your review
-and rating of max 5 points. You can send only one review. On the very bottom there is a link to API page.
+1. Clone the repository to your local machine:
 
-Clicking API button you will generate and will be redirected to json file with all data from my application.
+```
+git clone https://github.com/solaimanhridoy/BooksReview.git 
+```
 
-Clicking Log out button session is cleared and users is logging out , login.html page is loaded after.
+2. Run terminal from the project repository and type:
 
-application.py is a main app file. Contains routing to all html files , queries to database and all other functions.
-helpers.py contains one function , hecks if there is data in session, if no data found redirect to log in page. 
-import.py creates 3 tables-users, reviews and books. After books are created it read csv file and loads all books skipping firs line (title row).  
+```
+export FLASK_APP=application.py
+```
+
+3. Then export environment variable to the database url, type:
+
+```
+export FLASK_ENV=DATABASE_URL
+```
+
+4. Set the database url:
+
+```
+export DATABASE_URL="postgres://aubfrchzhbbjxz:8d68924dca3426e924f83feeed9de6f6e766bc71accf8c068f6e12b3cb3c13fe@ec2-23-21-130-182.compute-1.amazonaws.com:5432/dau1vei0b9q2ng"
+```
+
+5. Finally run flask server:
+
+   ```
+   python3 -m flask run
+   ```
+
+   ### App Description 
+
+- At the point when you start this application first time you will be diverted to the login page where you can join and sign in. 
+- login.html record expands layout.html. There are two structures on the login page, one for enrolling a second for signing in.
+- The JavaScript function checks if passwords coordinate during sign up. 
+- After successfully sign up you can attempt sign in. Once you are signed in the username shows close to log out catch.
+- Then you will be redirected to index.html after logged in. Now you will see simple quote and will be able to search books database. 
+- If you search for the books the list of books will be shown. Clicking one of the positions takes you to the book page.
+- The book.html file extends layout.html. On the book page the author, year and isbn will be loaded and rating count and reviews from goodread.com API  itself will be loaded. 
+- Then all reviews received from users along with ratings will be loaded one after one. At the bottom of the other comments you can leave your review and rating. 
+- You can click the API button to generate json files.
+- If you Click Log out button the session will be cleared and the will be logged out.
+- The application.py file is the main app file. It contains routing to all html files, queries to database and all other functions.
+- The helpers.py file contains one function, that search if there is data in session. If there is no data found it will redirect to log in page. 
+- There is three tables -users, reviews, and books are created in the import.py file. 
+- When books table is created it read csv file and loaded all the books from the goodread API.  
